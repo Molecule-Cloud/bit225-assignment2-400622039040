@@ -15,10 +15,10 @@
 
         <!--Navigation-->
         <nav class="site-nav">
-            <ui class="site-nav__list">
+            <ul class="site-nav__list">
                 <li><a href="#catalogue">Home</a></li>
                 <li><a href="#add-book">Add a book</a></li>
-            </ui>
+            </ul>
         </nav>
 
         <!--Main Content-->
@@ -28,7 +28,7 @@
                 <div class="controls">
                     <div class="field">
                         <label for="search-input"
-                            >Search by title or author</label
+                            >Search by title</label
                         >
                         <input
                             type="text"
@@ -40,7 +40,7 @@
                     <div class="field">
                         <label for="filter-category">Filter by category</label>
                         <select id="filter-category">
-                            <option value="">All</option>
+                            <option value="all">All</option>
                             <option value="IT">IT</option>
                             <option value="Business">Business</option>
                             <option value="Science">Science</option>
@@ -48,7 +48,7 @@
                         </select>
                     </div>
                 </div>
-                <p id="results-count" class="results-counts"></p>
+                <p id="results-count" class="results-count"></p>
                 <div id="book-list" class="book-grid"></div>
             </section>
 
@@ -102,16 +102,16 @@
                     <div class="form-actions">
                         <button type="submit" class="btn btn--primary">Add Book</button>
                     </div>
-                    <p id="form-message" class="form-message" role="alert"></pid>
+                    <p id="form-message" class="form-message" role="alert"></p>
                 </form>
             </section>
 
-            <!--Footer-->
 
-            <script src="js/app.js"></script>
         </main>
+            <!--Footer-->
             <footer class="site-footer">
                 <p>Built by Benjamin Appiah. Student ID: 400622039040 </p>
             </footer>
+            <script src="js/app.js"></script>
     </body>
 </html>
