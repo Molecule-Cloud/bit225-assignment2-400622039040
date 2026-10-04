@@ -1,0 +1,334 @@
+/* ============================================================
+   BlueLib Catalogue — stylesheet
+   Colour palette, CSS Grid layout, responsive down to mobile.
+   ============================================================ */
+
+/* ---------- Colour + spacing variables ---------- */
+:root {
+  --color-navy:       #1b3a5c;
+  --color-blue:       #2e6da4;
+  --color-blue-dark:  #22537d;
+  --color-bg:         #f4f5f7;
+  --color-surface:    #ffffff;
+  --color-text:       #22262b;
+  --color-muted:      #6b7280;
+  --color-border:     #d5dae0;
+  --color-danger:     #b3261e;
+  --color-success:    #1e6b3a;
+
+  --radius: 6px;
+  --gap: 1rem;
+}
+
+/* ---------- Base ---------- */
+* {
+  /*box-sizing: border-box;*/
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1, h2, h3 {
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  padding: 1.75rem 1rem;
+  text-align: center;
+}
+
+.site-header__title {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.site-header__tagline {
+  margin: 0;
+  color: #c7d4e2;
+  font-size: 0.95rem;
+}
+
+/* ---------- Navigation ---------- */
+.site-nav {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1rem;
+}
+
+.site-nav__list a {
+  color: var(--color-navy);
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.site-nav__list a:hover {
+  color: var(--color-blue);
+  border-bottom-color: var(--color-blue);
+}
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.75rem 1rem 3rem;
+}
+
+.panel {
+  margin-bottom: 2.5rem;
+}
+
+.panel__heading {
+  font-size: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-blue);
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Search + filter controls ---------- */
+.controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  margin-bottom: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  font: inherit;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.65rem;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 1px;
+  border-color: var(--color-blue);
+}
+
+.results-count {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+/* ---------- Book grid (3 / 2 / 1 columns) ---------- */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+/* ---------- Book card ---------- */
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  transition: border-color 0.15s ease;
+}
+
+.book-card:hover {
+  border-color: var(--color-blue);
+}
+
+.book-card:hover .book-card__title {
+  color: var(--color-blue);
+}
+
+.book-card__title {
+  font-size: 1.05rem;
+  margin: 0;
+  transition: color 0.15s ease;
+}
+
+.book-card__author {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.book-card__category {
+  align-self: flex-start;
+  margin: 0.25rem 0;
+  background-color: #e8eef5;
+  color: var(--color-navy);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+}
+
+.book-card__copies {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.book-card__copies.is-out {
+  color: var(--color-danger);
+}
+
+.book-card .btn {
+  margin-top: auto;
+}
+
+.empty-message {
+  grid-column: 1 / -1;
+  color: var(--color-muted);
+  padding: 1rem 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease,
+              border-color 0.15s ease;
+}
+
+.btn--primary {
+  background-color: var(--color-blue);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-blue-dark);
+}
+
+.btn--borrow {
+  width: 100%;
+  background-color: var(--color-surface);
+  color: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+.btn--borrow:hover:not(:disabled) {
+  background-color: var(--color-blue);
+  color: #ffffff;
+}
+
+.btn:disabled {
+  background-color: var(--color-border);
+  color: var(--color-muted);
+  border-color: var(--color-border);
+  cursor: not-allowed;
+}
+
+/* ---------- Add-book form ---------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+  max-width: 680px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+}
+
+.form-message {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-message--error {
+  color: var(--color-danger);
+}
+
+.form-message--success {
+  color: var(--color-success);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background-color: var(--color-navy);
+  color: #c7d4e2;
+  text-align: center;
+  padding: 1.25rem 1rem;
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   Desktop (>900px) : 3 cards per row  (set above)
+   Tablet  (<=900px): 2 cards per row
+   Mobile  (<=600px): 1 card per row
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header__title {
+    font-size: 1.4rem;
+  }
+}
